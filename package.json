@@ -1,0 +1,14 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "My little helper",
+  "main": "node.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "author": "KGA",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
