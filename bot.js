@@ -164,6 +164,12 @@ bot.on('message', message => {
     else    if (message.content == "как дела") {
       message.channel.send("Не тупи");
     }
+    else    if (message.content == "как дела?") {
+      message.channel.send("Не тупи");
+    }
+    else    if (message.content == "Как дела?") {
+      message.channel.send("Не тупи и пиши строчными");
+    }
     else    if (message.content == "видео") {
       message.channel.send("https://youtu.be/GV2bHugFUzU");
     }
