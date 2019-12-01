@@ -9,6 +9,7 @@
   "author": "KGA",
   "license": "ISC",
   "dependencies": {
+    "discord-irc": "^2.7.2",
     "discord.js": "^11.5.1"
   }
 }
