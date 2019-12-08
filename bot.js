@@ -239,6 +239,26 @@ bot.on('message', message => {
     }
     ////////////////////////////////////////
     
+	 if(message.content.includes("картинка"))
+    {
+        var messaga = message.content.split(" "); 
+        if(messaga.length != 2)
+        {
+            message.channel.send('Неверный синтаксис команды');
+        }
+        else
+        {
+            if(messaga[1].endsWith(".jpg") || messaga[1].endsWith(".png") || messaga[1].endsWith(".ico") || messaga[1].endsWith(".svg") || messaga[1].endsWith(".bmp") ||  messaga[1].endsWith(".raw") || messaga[1].endsWith(".tiff") || messaga[1].endsWith(".gif") || messaga[1].endsWith(".jpeg"))
+            {
+                message.channel.send({files: [messaga[1]]});
+            }
+            else
+            {
+                message.channel.send('Ссылка на картинку не правильная.');
+            }
+        }
+    }
+	
 /////////////////////////////////////////
 if(message.content=="!createrolemessage"){
   if (message.guild && !message.channel.permissionsFor(message.guild.me).missing('SEND_MESSAGES')) return;
