@@ -17,7 +17,16 @@ if (CONFIG.roles.length !== CONFIG.reactions.length)
 function randomIntInc (low, high) {
   return Math.floor(Math.random() * (high - low + 1) + low);
 }
-
+function randomIntInc2 (low, high) {
+  return Math.floor(Math.random() * (high - low + 1) + low);
+}
+/////////////////////////
+const rando_imgs = [
+  'https://media.giphy.com/media/CZpro4AZHs436/giphy.gif',
+  'https://media.giphy.com/media/CZpro4AZHs436/giphy2.gif',
+  'https://media.giphy.com/media/CZpro4AZHs436/giphy3.gif',
+  ]
+  /////////////////////////
 
 
 bot.on("ready", () => {
@@ -29,6 +38,56 @@ bot.login(token);
 var res=0;
 var result="";
 
+bot.on('message', message => {
+  /////////////////////////////////////////////
+  if(message.content==="отношение"){
+    res1 = randomIntInc2(1,7);
+    //ножницы 1
+    //бумага 2
+    //камень 3
+    if(res1===1){
+      result1="удар";
+    }else if(res===2){
+      result1="обнимашки";
+    }else if(res===3){
+      result1="выпнул";
+    }else if(res===4){
+      result1="выпнул";
+    }else if(res===5){
+      result1="выпнул";
+    }else if(res===6){
+      result1="выпнул";
+    }else if(res===7){
+      result1="выпнул";
+    }
+    {
+            if(res1===1){
+        //win
+        message.channel.send(`${message.author} обнят`, {files: ["https://im3.ezgif.com/tmp/ezgif-3-cc55b920dbf8.gif"]});
+      }else if(res1===2){
+        //lose
+        message.channel.send(`убежал от ${message.author}`, {files: ["https://media1.tenor.com/images/235aafbb68bb5b0ad9f3c813610d0556/tenor.gif"]});
+      }else if(res1===3){
+        //lose
+        message.channel.send(`разозлился на ${message.author}`, {files: ["https://media1.tenor.com/images/70ba809b4b29346d54e9efd2bc2b6c77/tenor.gif"]});
+      }else if(res1===4){
+        //lose
+        message.channel.send(`заинтересован ${message.author}`, {files: ["https://media1.tenor.com/images/a7148c6b5ed86260577f7c40c41c9981/tenor.gif"]});
+      }else if(res1===5){
+        //lose
+        message.channel.send(`в ужасе от ${message.author}`, {files: ["https://media1.tenor.com/images/777723dd1032af07230507d59c487c49/tenor.gif"]});
+      }else if(res1===6){
+        //lose
+        message.channel.send(`в недоумение от ${message.author}`, {files: ["https://media1.tenor.com/images/f64a3313a40c4905ee7a5a1e98c28386/tenor.gif"]});
+      }else if(res1===7){
+        //draw
+        message.channel.send(`${message.author} был выпнут из сервера`, {files: ["https://media1.tenor.com/images/0d419dd40efe758cdfc56c8ef3ee4f9f/tenor.gif"]});
+        message.member.kick('posting links');
+        message.author.send("Тебе не повезло. Заходи обратно и попробуй снова!!! https://discord.gg/j7P8uZx")
+      }
+      }}
+  });
+  
 /*
 bot.on('guildMemberAdd', member => { 
 console.log('User' + member.user.username + ' has joined the server!')
@@ -164,12 +223,6 @@ bot.on('message', message => {
     else    if (message.content == "как дела") {
       message.channel.send("Не тупи");
     }
-    else    if (message.content == "как дела?") {
-      message.channel.send("Не тупи");
-    }
-    else    if (message.content == "Как дела?") {
-      message.channel.send("Не тупи и пиши строчными");
-    }
     else    if (message.content == "видео") {
       message.channel.send("https://youtu.be/GV2bHugFUzU");
     }
@@ -238,8 +291,7 @@ bot.on('message', message => {
         }
     }
     ////////////////////////////////////////
-    
-	 if(message.content.includes("картинка"))
+    if(message.content.includes("картинка"))
     {
         var messaga = message.content.split(" "); 
         if(messaga.length != 2)
@@ -259,87 +311,90 @@ bot.on('message', message => {
             }
         }
     }
-	
-/////////////////////////////////////////
-if(message.content=="!createrolemessage"){
-  if (message.guild && !message.channel.permissionsFor(message.guild.me).missing('SEND_MESSAGES')) return;
 
-  if ((message.author.id !== CONFIG.yourID) && (message.content.toLowerCase() !== CONFIG.setupCMD)) return;
+/////////////////////////////////////////
+if(message.member.roles.find(r => r.name === "Царь сервера") || message.member.roles.find(r => r.name === "Скриптер")){
+  if(message.content=="!createrolemessage"){
+    if (message.guild && !message.channel.permissionsFor(message.guild.me).missing('SEND_MESSAGES')) return;
   
-  if (CONFIG.deleteSetupCMD) {
-      const missing = message.channel.permissionsFor(message.guild.me).missing('MANAGE_MESSAGES');
-      // Here we check if the bot can actually delete messages in the channel the command is being ran in
-      if (missing.includes('MANAGE_MESSAGES'))
-          throw new Error("I need permission to delete your command message! Please assign the 'Manage Messages' permission to me in this channel!");
-      message.delete().catch(O_o=>{});
-  }
-  
-  const missing = message.channel.permissionsFor(message.guild.me).missing('MANAGE_MESSAGES');
-  // Here we check if the bot can actually add recations in the channel the command is being ran in
-  if (missing.includes('ADD_REACTIONS'))
-      throw new Error("I need permission to add reactions to these messages! Please assign the 'Add Reactions' permission to me in this channel!");
-  
-  if (!CONFIG.embed) {
-      if (!CONFIG.initialMessage || (CONFIG.initialMessage === '')) 
-          throw "The 'initialMessage' property is not set in the config.js file. Please do this!";
-  
-      message.channel.send(CONFIG.initialMessage);
-  
-      const messages = generateMessages();
-      for (const { role, message: msg, emoji } of messages) {
-          if (!message.guild.roles.find(r => r.name === role))
-              throw `The role '${role}' does not exist!`;
-  
-          message.channel.send(msg).then(async m => {
-              const customCheck = message.guild.emojis.find(e => e.name === emoji);
-              if (!customCheck) await m.react(emoji);
-              else await m.react(customCheck.id);
-          }).catch(console.error);
-      }
-  } else {
-      if (!CONFIG.embedMessage || (CONFIG.embedMessage === ''))
-          throw "The 'embedMessage' property is not set in the config.js file. Please do this!";
-      if (!CONFIG.embedFooter || (CONFIG.embedMessage === ''))
-          throw "The 'embedFooter' property is not set in the config.js file. Please do this!";
-  
-      const roleEmbed = new Discord.RichEmbed()
-          .setDescription(CONFIG.embedMessage)
-          .setFooter(CONFIG.embedFooter);
-  
-      if (CONFIG.embedColor) roleEmbed.setColor(CONFIG.embedColor);
-  
-      if (CONFIG.embedThumbnail && (CONFIG.embedThumbnailLink !== '')) 
-          roleEmbed.setThumbnail(CONFIG.embedThumbnailLink);
-      else if (CONFIG.embedThumbnail && message.guild.icon)
-          roleEmbed.setThumbnail(message.guild.iconURL);
-  
-      const fields = generateEmbedFields();
-      if (fields.length > 25) throw "That maximum roles that can be set for an embed is 25!";
-  
-      for (const { emoji, role } of fields) {
-          if (!message.guild.roles.find(r => r.name === role))
-              throw `The role '${role}' does not exist!`;
-  
-          const customEmote = bot.emojis.find(e => e.name === emoji);
-          
-          if (!customEmote) roleEmbed.addField(emoji, role, true);
-          else roleEmbed.addField(customEmote, role, true);
-      }
-  
-      message.channel.send(roleEmbed).then(async m => {
-          for (const r of CONFIG.reactions) {
-              const emoji = r;
-              const customCheck = bot.emojis.find(e => e.name === emoji);
-              
-              if (!customCheck) await m.react(emoji);
-              else await m.react(customCheck.id);
-          }
-      });
+    if ((message.author.id !== CONFIG.yourID) && (message.content.toLowerCase() !== CONFIG.setupCMD)) return;
+    
+    if (CONFIG.deleteSetupCMD) {
+        const missing = message.channel.permissionsFor(message.guild.me).missing('MANAGE_MESSAGES');
+        // Here we check if the bot can actually delete messages in the channel the command is being ran in
+        if (missing.includes('MANAGE_MESSAGES'))
+            throw new Error("I need permission to delete your command message! Please assign the 'Manage Messages' permission to me in this channel!");
+        message.delete().catch(O_o=>{});
+    }
+    
+    const missing = message.channel.permissionsFor(message.guild.me).missing('MANAGE_MESSAGES');
+    // Here we check if the bot can actually add recations in the channel the command is being ran in
+    if (missing.includes('ADD_REACTIONS'))
+        throw new Error("I need permission to add reactions to these messages! Please assign the 'Add Reactions' permission to me in this channel!");
+    
+    if (!CONFIG.embed) {
+        if (!CONFIG.initialMessage || (CONFIG.initialMessage === '')) 
+            throw "The 'initialMessage' property is not set in the config.js file. Please do this!";
+    
+        message.channel.send(CONFIG.initialMessage);
+    
+        const messages = generateMessages();
+        for (const { role, message: msg, emoji } of messages) {
+            if (!message.guild.roles.find(r => r.name === role))
+                throw `The role '${role}' does not exist!`;
+    
+            message.channel.send(msg).then(async m => {
+                const customCheck = message.guild.emojis.find(e => e.name === emoji);
+                if (!customCheck) await m.react(emoji);
+                else await m.react(customCheck.id);
+            }).catch(console.error);
+        }
+    } else {
+        if (!CONFIG.embedMessage || (CONFIG.embedMessage === ''))
+            throw "The 'embedMessage' property is not set in the config.js file. Please do this!";
+        if (!CONFIG.embedFooter || (CONFIG.embedMessage === ''))
+            throw "The 'embedFooter' property is not set in the config.js file. Please do this!";
+    
+        const roleEmbed = new Discord.RichEmbed()
+            .setDescription(CONFIG.embedMessage)
+            .setFooter(CONFIG.embedFooter);
+    
+        if (CONFIG.embedColor) roleEmbed.setColor(CONFIG.embedColor);
+    
+        if (CONFIG.embedThumbnail && (CONFIG.embedThumbnailLink !== '')) 
+            roleEmbed.setThumbnail(CONFIG.embedThumbnailLink);
+        else if (CONFIG.embedThumbnail && message.guild.icon)
+            roleEmbed.setThumbnail(message.guild.iconURL);
+    
+        const fields = generateEmbedFields();
+        if (fields.length > 25) throw "That maximum roles that can be set for an embed is 25!";
+    
+        for (const { emoji, role } of fields) {
+            if (!message.guild.roles.find(r => r.name === role))
+                throw `The role '${role}' does not exist!`;
+    
+            const customEmote = bot.emojis.find(e => e.name === emoji);
+            
+            if (!customEmote) roleEmbed.addField(emoji, role, true);
+            else roleEmbed.addField(customEmote, role, true);
+        }
+    
+        message.channel.send(roleEmbed).then(async m => {
+            for (const r of CONFIG.reactions) {
+                const emoji = r;
+                const customCheck = bot.emojis.find(e => e.name === emoji);
+                
+                if (!customCheck) await m.react(emoji);
+                else await m.react(customCheck.id);
+            }
+        });
+    }
   }
 }
+});
 /////////////////////////////////////////
 
-  });
+ 
 
   bot.on('raw', async event => {
     if (!events.hasOwnProperty(event.t)) return;
