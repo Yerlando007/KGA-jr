@@ -21,12 +21,6 @@ function randomIntInc2 (low, high) {
   return Math.floor(Math.random() * (high - low + 1) + low);
 }
 /////////////////////////
-const rando_imgs = [
-  'https://media.giphy.com/media/CZpro4AZHs436/giphy.gif',
-  'https://media.giphy.com/media/CZpro4AZHs436/giphy2.gif',
-  'https://media.giphy.com/media/CZpro4AZHs436/giphy3.gif',
-  ]
-  /////////////////////////
 
 
 bot.on("ready", () => {
@@ -36,54 +30,30 @@ bot.on("ready", () => {
 bot.login(token);
 
 var res=0;
+var res1=0;
 var result="";
 
 bot.on('message', message => {
   /////////////////////////////////////////////
   if(message.content==="отношение"){
     res1 = randomIntInc2(1,7);
-    //ножницы 1
-    //бумага 2
-    //камень 3
-    if(res1===1){
-      result1="удар";
-    }else if(res===2){
-      result1="обнимашки";
-    }else if(res===3){
-      result1="выпнул";
-    }else if(res===4){
-      result1="выпнул";
-    }else if(res===5){
-      result1="выпнул";
-    }else if(res===6){
-      result1="выпнул";
-    }else if(res===7){
-      result1="выпнул";
-    }
     {
             if(res1===1){
-        //win
-        message.channel.send(`${message.author} обнят`, {files: ["https://im3.ezgif.com/tmp/ezgif-3-cc55b920dbf8.gif"]});
+        message.channel.send(`${message.author} обнят`, {files: ["https://psv4.userapi.com/c856328/u51260163/docs/d14/25d0c0f5acf9/ezgif-3-cc55b920dbf8.gif"]});
       }else if(res1===2){
-        //lose
         message.channel.send(`убежал от ${message.author}`, {files: ["https://media1.tenor.com/images/235aafbb68bb5b0ad9f3c813610d0556/tenor.gif"]});
       }else if(res1===3){
-        //lose
         message.channel.send(`разозлился на ${message.author}`, {files: ["https://media1.tenor.com/images/70ba809b4b29346d54e9efd2bc2b6c77/tenor.gif"]});
       }else if(res1===4){
-        //lose
         message.channel.send(`заинтересован ${message.author}`, {files: ["https://media1.tenor.com/images/a7148c6b5ed86260577f7c40c41c9981/tenor.gif"]});
       }else if(res1===5){
-        //lose
         message.channel.send(`в ужасе от ${message.author}`, {files: ["https://media1.tenor.com/images/777723dd1032af07230507d59c487c49/tenor.gif"]});
       }else if(res1===6){
-        //lose
         message.channel.send(`в недоумение от ${message.author}`, {files: ["https://media1.tenor.com/images/f64a3313a40c4905ee7a5a1e98c28386/tenor.gif"]});
       }else if(res1===7){
-        //draw
-        message.channel.send(`${message.author} был выпнут из сервера`, {files: ["https://media1.tenor.com/images/0d419dd40efe758cdfc56c8ef3ee4f9f/tenor.gif"]});
+        message.channel.send(`member.user.username был выпнут из сервера`, {files: ["https://media1.tenor.com/images/0d419dd40efe758cdfc56c8ef3ee4f9f/tenor.gif"]});
         message.member.kick('posting links');
-        message.author.send("Тебе не повезло. Заходи обратно и попробуй снова!!! https://discord.gg/j7P8uZx")
+        message.author.send("Ты был выпнут из сервера. Заходи обратно и попробуй снова!!! https://discord.gg/j7P8uZx", {files: ["https://media1.tenor.com/images/0d419dd40efe758cdfc56c8ef3ee4f9f/tenor.gif"]})
       }
       }}
   });
