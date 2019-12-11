@@ -51,7 +51,7 @@ bot.on('message', message => {
       }else if(res1===6){
         message.channel.send(`в недоумение от ${message.author}`, {files: ["https://media1.tenor.com/images/f64a3313a40c4905ee7a5a1e98c28386/tenor.gif"]});
       }else if(res1===7){
-        message.channel.send(`member.user.username был выпнут из сервера`, {files: ["https://media1.tenor.com/images/0d419dd40efe758cdfc56c8ef3ee4f9f/tenor.gif"]});
+        message.channel.send(message.author.username.user_id + " был выпнут из сервера", {files: ["https://media1.tenor.com/images/0d419dd40efe758cdfc56c8ef3ee4f9f/tenor.gif"]});
         message.member.kick('posting links');
         message.author.send("Ты был выпнут из сервера. Заходи обратно и попробуй снова!!! https://discord.gg/j7P8uZx", {files: ["https://media1.tenor.com/images/0d419dd40efe758cdfc56c8ef3ee4f9f/tenor.gif"]})
       }
