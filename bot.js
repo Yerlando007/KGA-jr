@@ -247,6 +247,22 @@ bot.on('message', message => {
     if (message.content == "Картинка!") {
       message.channel.send("good",{files: ["https://ksassets.timeincuk.net/wp/uploads/sites/55/2019/11/SONIC_INTL_J_CARREY_FORWARD_RUN_DGTL_1_SHT_UK-920x584.jpg"]});
     }
+	
+    ///////////////////////////////////////////////
+	
+	
+    if(message.content == "!sexWithDolphins")
+{
+    if (message.member.id  ==  "281477029780652033")
+    {
+        message.channel.send(`Пользователю ${message.author} было выдано разрешение на еблю дельфинов. Смело идите в зоопарк.`);      
+    }
+}
+
+	
+    ///////////////////////////////////////////////	
+	
+	
     ///////////////////////////////////////////////
     if(message.content.includes("отправка"))
     {
