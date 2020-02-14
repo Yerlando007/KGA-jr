@@ -1,2 +1,0 @@
-# KGA-jr
-KGA jr
