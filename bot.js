@@ -116,6 +116,10 @@ else if(message.content==="дай денег")
          message.channel.send(`${message.author} найди работу`); 
      }
 }
+else if(message.content==="дай денег")
+{
+     message.channel.send("У вас есть:" + money);
+}
 });
 
 
