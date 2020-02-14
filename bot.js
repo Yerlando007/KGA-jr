@@ -102,6 +102,20 @@ else if (message.content==="hesoyam")
     message.channel.send(`${message.author} читер`);   
   }
 }
+else if(message.content==="дай денег")
+{
+     if (message.member.roles.find(r => r.name === "Царь сервера")
+        {
+	    money = money + 1000;
+	    message.channel.send("Вот тебе косарь");
+            message.channel.send("У вас теперь:" + money);
+        }
+     else 
+     {
+	 message.author.send("Хрен тебе!!!");
+         message.channel.send(`${message.author} найди работу`); 
+     }
+}
 });
 
 
@@ -535,7 +549,7 @@ function generateEmbedFields() {
 
 
 
-
+/*
 bot.on('guildMemberAdd', async member => {
 	const channel = member.guild.channels.find(ch => ch.name === '💌добро-пожаловать💌');
 	if (!channel) return;
@@ -570,7 +584,7 @@ bot.on('guildMemberAdd', async member => {
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'ss.png');
 
 	channel.send(`Welcome to the server, ${member}!`, attachment);
-});
+});*/
 
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
