@@ -49,16 +49,15 @@ var res=0;
 var res1=0;
 var res2=0;
 var result="";
-money=300;
+var money=300;
 
 bot.on('message', message => {
   /////////////////////////////////////////////
-  if(message.content==="uranus"){
-    if (message.channel.id == "677943505993203722")
-    {
+if(message.content==="slot"){
     res2 = randomIntInc3(1,9);
     res3 = randomIntInc4(1,9);
-    res4 = randomIntInc5(1,9);
+    res4 = randomIntInc5(1,9);     
+    /*     
     if(res2==9 && res3==9 && res4==9)
     {
       message.author.send("Молодец!!! Ты выиграл нитро. Вот твой приз - https://discord.gift/Tk9pfmpRF7fQM975");
@@ -66,28 +65,44 @@ bot.on('message', message => {
     else
     {
       message.channel.send(`пробуй еще ${message.author}`);
-    }
-      /*if (money<=0)
+    }*/
+      if (money>0)
       {
-        message.channel.send("У тебя осталось:" + money + "\nТы не можешь больше играть");
-      }
-      else 
-      {
-          message.channel.send("" + res2 + res3 + res4);
-      }
-      if(res2==res3 && res3==res4 && res4==res2)
-      {
-        message.channel.send("you won");
+        if (res2==res3 && res3==res4 && res4==res2)
+        {        
+        message.channel.send("" + res2 + res3 + res4);   
+        message.channel.send("Ты выиграл!!!");
         money=money+100;
         message.channel.send("У тебя осталось:" + money);
-      }
-        else {
-          message.channel.send("you lose");
-          money=money-100;
-          message.channel.send("У тебя осталось:" + money);
         }
-      }*/
-}}});
+      else
+        {
+        message.channel.send("" + res2 + res3 + res4);   
+        message.channel.send("you lose");
+        money=money-100;
+        message.channel.send("У тебя осталось:" + money);
+        }        
+      }
+      else
+      {
+        message.channel.send("У вас осталось:" + money + "\nТы не можешь больше играть");
+      }
+    }
+else if (message.content==="hesoyam")
+{
+  if (money>100)
+  {
+    message.author.send("Хрен тебе!!!");
+    message.channel.send("Все еще можно играть");
+  }
+  else
+  {
+    money = money + 250;
+    message.channel.send("У вас теперь:" + money);
+    message.channel.send(`${message.author} читер`);   
+  }
+}
+});
 
 
 bot.on('message', message => {
