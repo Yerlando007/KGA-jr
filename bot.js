@@ -51,11 +51,11 @@ bot.on('message', message => {
     res4 = randomIntInc5(1,9);
     if(res2==9 && res3==9 && res4==9)
     {
-      message.channel.send("Молодец!!! Ты выиграл нитро. Вот твой приз - https://discord.gift/Tk9pfmpRF7fQM975");
+      message.author.send("Молодец!!! Ты выиграл нитро. Вот твой приз - https://discord.gift/Tk9pfmpRF7fQM975");
     }
     else
     {
-      message.author.send(`пробуй еще ${message.author}`);
+      message.channel.send(`пробуй еще ${message.author}`);
     }
       /*if (money<=0)
       {
