@@ -1,0 +1,18 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "My little helper",
+  "main": "node.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "author": "KGA",
+  "license": "ISC",
+  "dependencies": {
+    "botkit": "^4.6.1",
+    "canvas": "^2.6.1",
+    "canvas-constructor": "^3.1.0",
+    "discord-irc": "^2.7.2",
+    "discord.js": "^11.5.1"
+  }
+}
