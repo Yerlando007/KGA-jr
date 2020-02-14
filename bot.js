@@ -71,21 +71,21 @@ if(message.content==="slot"){
         if (res2==res3 && res3==res4 && res4==res2)
         {        
         message.channel.send("" + res2 + res3 + res4);   
-        message.channel.send("Ты выиграл!!!");
+        message.channel.send("Вы выиграли!!!");
         money=money+100;
-        message.channel.send("У тебя осталось:" + money);
+        message.channel.send("У вас осталось:" + money);
         }
       else
         {
         message.channel.send("" + res2 + res3 + res4);   
-        message.channel.send("you lose");
+        message.channel.send("Вы проиграли!!!");
         money=money-100;
-        message.channel.send("У тебя осталось:" + money);
+        message.channel.send("У вас осталось:" + money);
         }        
       }
       else
       {
-        message.channel.send("У вас осталось:" + money + "\nТы не можешь больше играть");
+        message.channel.send("У вас осталось:" + money + "\nВы не можете больше играть");
       }
     }
 else if (message.content==="hesoyam")
