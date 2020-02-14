@@ -104,7 +104,7 @@ else if (message.content==="hesoyam")
 }
 else if(message.content==="дай денег")
 {
-     if (message.member.roles.find(r => r.name === "Царь сервера")
+     if (message.member.roles.find(r => r.name === "Царь сервера"))
         {
 	    money = money + 1000;
 	    message.channel.send("Вот тебе косарь");
