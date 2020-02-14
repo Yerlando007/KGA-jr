@@ -37,6 +37,57 @@ bot.login(token);
 
 var res=0;
 var res1=0;
+var res2=0;
+var result="";
+money=300;
+
+bot.on('message', message => {
+  /////////////////////////////////////////////
+  if(message.content==="uranus"){
+    if (message.channel.id == "677943505993203722")
+    {
+    res2 = randomIntInc3(1,9);
+    res3 = randomIntInc4(1,9);
+    res4 = randomIntInc5(1,9);
+    if(res2==9 && res3==9 && res4==9)
+    {
+      message.channel.send("Молодец!!! Ты выиграл нитро. Вот твой приз - https://discord.gift/Tk9pfmpRF7fQM975");
+    }
+    else
+    {
+      message.author.send(`пробуй еще ${message.author}`);
+    }
+      /*if (money<=0)
+      {
+        message.channel.send("У тебя осталось:" + money + "\nТы не можешь больше играть");
+      }
+      else 
+      {
+          message.channel.send("" + res2 + res3 + res4);
+      }
+      if(res2==res3 && res3==res4 && res4==res2)
+      {
+        message.channel.send("you won");
+        money=money+100;
+        message.channel.send("У тебя осталось:" + money);
+      }
+        else {
+          message.channel.send("you lose");
+          money=money-100;
+          message.channel.send("У тебя осталось:" + money);
+        }
+      }*/
+}}});
+
+
+bot.on("ready", () => {
+  console.log("I am ready!");
+});
+
+bot.login(token);
+
+var res=0;
+var res1=0;
 var result="";
 
 bot.on('message', message => {
