@@ -73,19 +73,19 @@ if(message.content==="slot"){
         message.channel.send("" + res2 + res3 + res4);   
         message.channel.send("Вы выиграли!!!");
         money=money+100;
-        message.channel.send("У вас осталось:" + money);
+        message.channel.send("У вас осталось: " + money);
         }
       else
         {
         message.channel.send("" + res2 + res3 + res4);   
         message.channel.send("Вы проиграли!!!");
         money=money-100;
-        message.channel.send("У вас осталось:" + money);
+        message.channel.send("У вас осталось: " + money);
         }        
       }
       else
       {
-        message.channel.send("У вас осталось:" + money + "\nВы не можете больше играть");
+        message.channel.send("У вас осталось: " + money + "\nВы не можете больше играть");
       }
     }
 else if (message.content==="hesoyam")
@@ -98,7 +98,7 @@ else if (message.content==="hesoyam")
   else
   {
     money = money + 250;
-    message.channel.send("У вас теперь:" + money);
+    message.channel.send("У вас теперь: " + money);
     message.channel.send(`${message.author} читер`);   
   }
 }
@@ -108,7 +108,7 @@ else if(message.content==="дай денег")
         {
 	    money = money + 1000;
 	    message.channel.send("Вот тебе косарь");
-            message.channel.send("У вас теперь:" + money);
+            message.channel.send("У вас теперь: " + money);
         }
      else 
      {
@@ -118,7 +118,7 @@ else if(message.content==="дай денег")
 }
 else if(message.content==="счет")
 {
-     message.channel.send("У вас есть:" + money);
+     message.channel.send("У вас есть: " + money);
 }
 });
 
