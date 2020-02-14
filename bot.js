@@ -549,7 +549,7 @@ function generateEmbedFields() {
 
 
 
-/*
+
 bot.on('guildMemberAdd', async member => {
 	const channel = member.guild.channels.find(ch => ch.name === '💌добро-пожаловать💌');
 	if (!channel) return;
@@ -584,7 +584,7 @@ bot.on('guildMemberAdd', async member => {
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'ss.png');
 
 	channel.send(`Welcome to the server, ${member}!`, attachment);
-});*/
+});
 
 const applyText = (canvas, text) => {
 	const ctx = canvas.getContext('2d');
