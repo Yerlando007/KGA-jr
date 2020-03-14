@@ -151,6 +151,31 @@ bot.on('message', message => {
   });
   ////////////////////////////
 /*
+    if(message.content==="Привет" || message.content==="привет" || message.content==="ПРИВЕТ" || message.content==="пРИВЕТ" || message.content==="ПрИвЕт" || message.content==="пРиВеТ" || message.content==="ПРИвет" || message.content==="приВЕТ" || message.content==="ПРивет" || message.content==="прИВет" || message.content==="привЕТ" || message.content==="прив" || message.content==="ПРИВ"){
+      res1 = randomIntInc2(1,8);
+      {
+              if(res1===1){
+          message.channel.send(` Привет, ${message.author}! Тебе ответил бот, т.к. царь сервера не любит это`);
+        }else if(res1===2){
+          message.channel.send(`${message.author}, иди к черту`);
+        }else if(res1===3){
+          message.channel.send(`${message.author}, запарил`);
+        }else if(res1===4){
+          message.channel.send(`${message.author}, не пиши свои приветы`);
+        }else if(res1===5){
+          message.channel.send(`${message.author}, я знаю, где ты живешь`);
+        }else if(res1===6){
+          message.channel.send(`в недоумение от ${message.author}`, {files: ["https://media.tenor.com/images/3f40ef2692ebe4f8ce794ede516402a1/tenor.gif"]});
+        }else if(res1===7){
+          message.channel.send(`${message.author}, ты гей! Ясно!!!`);
+        }else if(res1===8){
+          message.channel.send(message.author.username + " был выпнут из сервера", {files: ["https://media.tenor.com/images/c971f4469f13c2f30ff0bd978ca6619d/tenor.gif"]});
+          message.member.kick('posting links');
+          message.author.send("Ты был выпнут из сервера. Заходи обратно и не пиши привет больше. Не зли меня!!! https://discord.gg/j7P8uZx", {files: ["https://media.tenor.com/images/c971f4469f13c2f30ff0bd978ca6619d/tenor.gif"]})
+        }
+        }}
+    });
+
 bot.on('guildMemberAdd', member => { 
 console.log('User' + member.user.username + ' has joined the server!')
 console.log(member)
