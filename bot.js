@@ -71,21 +71,21 @@ if(message.content==="slot"){
         if (res2==res3 && res3==res4 && res4==res2)
         {        
         message.channel.send("" + res2 + res3 + res4);   
-        message.channel.send("Вы выиграли!!!");
+        message.channel.send("Ты выиграл!!!");
         money=money+100;
-        message.channel.send("У вас осталось: " + money);
+        message.channel.send("У тебя осталось:" + money);
         }
       else
         {
         message.channel.send("" + res2 + res3 + res4);   
-        message.channel.send("Вы проиграли!!!");
+        message.channel.send("you lose");
         money=money-100;
-        message.channel.send("У вас осталось: " + money);
+        message.channel.send("У тебя осталось:" + money);
         }        
       }
       else
       {
-        message.channel.send("У вас осталось: " + money + "\nВы не можете больше играть");
+        message.channel.send("У вас осталось:" + money + "\nТы не можешь больше играть");
       }
     }
 else if (message.content==="hesoyam")
@@ -98,7 +98,7 @@ else if (message.content==="hesoyam")
   else
   {
     money = money + 250;
-    message.channel.send("У вас теперь: " + money);
+    message.channel.send("У вас теперь:" + money);
     message.channel.send(`${message.author} читер`);   
   }
 }
@@ -108,17 +108,13 @@ else if(message.content==="дай денег")
         {
 	    money = money + 1000;
 	    message.channel.send("Вот тебе косарь");
-            message.channel.send("У вас теперь: " + money);
+            message.channel.send("У вас теперь:" + money);
         }
      else 
      {
 	 message.author.send("Хрен тебе!!!");
          message.channel.send(`${message.author} найди работу`); 
      }
-}
-else if(message.content==="счет")
-{
-     message.channel.send("У вас есть: " + money);
 }
 });
 
@@ -149,8 +145,11 @@ bot.on('message', message => {
       }
       }}
   });
-  ////////////////////////////
-/*
+
+
+
+  bot.on('message', message => {
+    /////////////////////////////////////////////
     if(message.content==="Привет" || message.content==="привет" || message.content==="ПРИВЕТ" || message.content==="пРИВЕТ" || message.content==="ПрИвЕт" || message.content==="пРиВеТ" || message.content==="ПРИвет" || message.content==="приВЕТ" || message.content==="ПРивет" || message.content==="прИВет" || message.content==="привЕТ" || message.content==="прив" || message.content==="ПРИВ"){
       res1 = randomIntInc2(1,8);
       {
@@ -175,7 +174,8 @@ bot.on('message', message => {
         }
         }}
     });
-
+  ////////////////////////////
+/*
 bot.on('guildMemberAdd', member => { 
 console.log('User' + member.user.username + ' has joined the server!')
 console.log(member)
@@ -303,9 +303,6 @@ bot.on('message', message => {
     }
     else    if (message.content == "Rock") {
         message.channel.send("Не беси меня, Обама, и пиши строчными на русском 'камень'" );
-    } 
-    else    if (message.content == "привет") {
-      message.channel.send(" Привет, мой друг! Тебе ответил бот, т.к. царь сервера не любит это");
     }
     else    if (message.content == "как дела") {
       message.channel.send("Не тупи");
@@ -315,9 +312,6 @@ bot.on('message', message => {
     }
     else    if (message.content == "пока") {
       message.channel.send("Удачи");
-    }
-    else    if (message.content == "Привет") {
-      message.channel.send(" Привет, мой друг! Тебе ответил бот, т.к. царь сервера не любит это и пиши строчными");
     }
     else    if (message.content == "Как дела") {
       message.channel.send("Не тупи и пиши строчными");
