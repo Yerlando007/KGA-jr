@@ -121,7 +121,7 @@ else if(message.content==="дай денег")
 
 bot.on('message', message => {
   /////////////////////////////////////////////
-  if(message.content==="F" || message.content==="f"){
+  if(message.content==="mood"){
     res1 = randomIntInc2(1,8);
     {
             if(res1===1){
