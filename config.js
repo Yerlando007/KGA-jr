@@ -25,7 +25,7 @@ module.exports = {
 	 */
 	embedFooter: "Role Reactions",
 	
-	roles: ["KazGameArt", "Mefiresu", "MechaShadow"],
+	roles: ["РОЗОВЫЕ", "ГОЛУБЫЕ", "КОРИЧНЕВЫЕ"],
 
 	/**
 	 * For custom emojis, provide the name of the emoji
