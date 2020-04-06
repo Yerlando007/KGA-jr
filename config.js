@@ -26,8 +26,8 @@ module.exports = {
 	 */
 	embedFooter: "Role Reactions",
 	
-	roles: ["ИС-16-2", "ВТ-16-2", "Инф-16-2"],
-
+	roles: ["Инф-16-2", "ВТ-16-2", "ИС-16-2"],
+	
 	/**
 	 * For custom emojis, provide the name of the emoji
 	 */
