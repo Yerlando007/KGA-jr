@@ -104,7 +104,7 @@ else if (message.content==="hesoyam")
 }
 else if(message.content==="дай денег")
 {
-     if (message.member.roles.find(r => r.name === "ПРОСТО БОЖЕСТВО"))
+     if (message.member.roles.find(r => r.name === "Админ"))
         {
 	    money = money + 1000;
 	    message.channel.send("Вот тебе косарь");
@@ -154,7 +154,7 @@ bot.on('message', message => {
       res1 = randomIntInc2(1,8);
       {
               if(res1===1){
-          message.channel.send(` Привет, ${message.author}! Тебе ответил бот, т.к. божество не любит это`);
+          message.channel.send(` Привет, ${message.author}! Тебе ответил бот, т.к. Админ не любит это`);
         }else if(res1===2){
           message.channel.send(`${message.author}, иди к черту`);
         }else if(res1===3){
@@ -363,7 +363,7 @@ bot.on('message', message => {
     /////////////////////////////////////////////
     if(message.content.includes("отправка"))
     {
-        if(message.member.roles.find(r => r.name === "ПРОСТО БОЖЕСТВО"))
+        if(message.member.roles.find(r => r.name === "Админ"))
         {
             var messaga = message.content.split("///"); 
             if(messaga.length != 3)
@@ -404,7 +404,7 @@ bot.on('message', message => {
     }
 
 /////////////////////////////////////////
-if(message.member.roles.find(r => r.name === "ПРОСТО БОЖЕСТВО") || message.member.roles.find(r => r.name === "Скриптеры")){
+if(message.member.roles.find(r => r.name === "Админ") || message.member.roles.find(r => r.name === "Скриптеры")){
   if(message.content=="!createrolemessage"){
     if (message.guild && !message.channel.permissionsFor(message.guild.me).missing('SEND_MESSAGES')) return;
   
